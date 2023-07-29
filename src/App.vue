@@ -5,10 +5,11 @@
     <div class="input-group mb-3">
       <input type="search" name="busca" id="busca" class="form-control" placeholder="Buscar pokemon" v-model="busca">
       <button class="btn btn-primary" type="button" id="bt-buscar" @click="buscar()">Buscar</button>
+      <button class="btn btn-danger" type="button" @click="limpar()">Limpar</button>
     </div>
     
     <div class="row">
-      <div class="col-2" v-for="(pokemon, index) in filteredPokemons" :key="pokemon.url">
+      <div class="col-xl-2 col-lg-4 col-md-6" v-for="(pokemon, index) in filteredPokemons" :key="pokemon.url">
         <Pokemon :name="pokemon.name" :url="pokemon.url" :num="index + 1"/>
       </div>
     </div>
@@ -32,7 +33,7 @@ export default {
     }
   },
   created: function () {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=180&offset=0").then(response => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=360&offset=0").then(response => {
       this.pokemons = response.data.results,
       this.filteredPokemons = response.data.results
     });
@@ -44,7 +45,11 @@ export default {
       } else {
         this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.name == this.busca);
       }
-    } 
+    },
+    limpar: function() {
+      this.busca = '';
+      this.filteredPokemons = this.pokemons;
+    }
   },
   computed: {
     resultadoBusca: function() {
