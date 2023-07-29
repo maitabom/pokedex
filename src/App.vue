@@ -2,6 +2,8 @@
   <div class="container">
     <h1>Pokedex</h1>
     <hr>
+    <p class="d-block d-lg-none text-secondary">Clique na imagem para ver o pokemon de costas</p>
+    <p class="d-none d-lg-block text-secondary">Passe o mouse para ver o pokemon de costas</p>
     <div class="input-group mb-3">
       <input type="search" name="busca" id="busca" class="form-control" placeholder="Buscar pokemon" v-model="busca">
       <button class="btn btn-primary" type="button" id="bt-buscar" @click="buscar()">Buscar</button>
