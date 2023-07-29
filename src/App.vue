@@ -43,7 +43,7 @@ export default {
       if (this.busca.trim() == '') {
         this.filteredPokemons = this.pokemons;
       } else {
-        this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.name == this.busca);
+        this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.name.search(this.busca.toLowerCase()) >= 0);
       }
     },
     limpar: function() {
