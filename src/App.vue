@@ -35,7 +35,7 @@ export default {
     }
   },
   created: function () {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=540&offset=0").then(response => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=720&offset=0").then(response => {
       this.pokemons = response.data.results,
       this.filteredPokemons = response.data.results
     });
